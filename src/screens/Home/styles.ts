@@ -12,8 +12,6 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     paddingBottom: 20,
-    borderBottomWidth: 1,
-    borderBottomColor: "#333333",
   },
   containerTwo: {
     flexDirection: "row",
@@ -26,6 +24,8 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     gap: 16,
+    borderTopWidth: 1,
+    borderTopColor: "#333333",
   },
   containerFour: {
     flexDirection: "row",
@@ -98,5 +98,8 @@ export const styles = StyleSheet.create({
     borderColor: "#0D0D0D",
     borderRadius: 6,
     color: "white",
+  },
+  containerTasks: {
+    gap: 8,
   },
 });

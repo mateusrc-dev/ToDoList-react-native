@@ -19,9 +19,25 @@ export function Home() {
   const [tasks, setTasks] = useState<tasksProps[]>([
     {
       checked: true,
+      content: "ler livros dos santos católicos",
+    },
+    {
+      checked: false,
+      content: "programar ToDoList em React Native",
+    },
+    {
+      checked: true,
+      content: "assistir todos os episódios de One Piece",
+    },
+    {
+      checked: false,
       content: "qualquer coisa",
     },
-  ]);
+    {
+      checked: true,
+      content: "qualquer coisa suahsauhsuahsa",
+    },
+ ]);
 
   return (
     <View style={styles.containerAll}>
@@ -60,11 +76,15 @@ export function Home() {
           <FontAwesome5 name="clipboard" size={56} color="#808080" />
         </View>
       ) : (
-        tasks.map((task) => (
-          <View key={String(task.content)}>
-            <Task checked={task.checked} content={task.content} />
-          </View>
-        ))
+        <View style={styles.containerTasks}>
+          {tasks.map((task) => (
+            <Task
+              key={String(task.content)}
+              checked={task.checked}
+              content={task.content}
+            />
+          ))}
+        </View>
       )}
     </View>
   );

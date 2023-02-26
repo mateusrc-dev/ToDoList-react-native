@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Text, View, TouchableOpacity } from "react-native";
 import { EvilIcons } from "@expo/vector-icons";
 import { Checkbox } from "../Checkbox"
@@ -10,19 +10,12 @@ interface TaskProps {
 }
 
 export function Task({ checked, content }: TaskProps) {
-  const [checkedState, setCheckedState] = useState(checked);
-
   return (
     <View style={styles.container}>
-      {/*<Checkbox
-        style={styles.checkbox}
-        value={checkedState}
-        onValueChange={setCheckedState}
-  />*/}
       <Checkbox checked={checked} />
-      <Text>{content}</Text>
-      <TouchableOpacity>
-        <EvilIcons name="trash" size={24} color="black" />
+      <Text style={styles.text}>{content}</Text>
+      <TouchableOpacity style={styles.trash}>
+        <EvilIcons name="trash" size={32} color="#808080" />
       </TouchableOpacity>
     </View>
   );
