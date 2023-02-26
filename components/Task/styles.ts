@@ -3,7 +3,6 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    // padding: 12px 8px 12px 12px;
     paddingTop: 12,
     paddingRight: 8,
     paddingBottom: 12,
@@ -22,6 +21,7 @@ export const styles = StyleSheet.create({
     elevation: 5,
     borderRadius: 8,
     flexDirection: "row",
+    marginBottom: 8,
   },
   checkbox: {
     width: 24,
@@ -36,6 +36,6 @@ export const styles = StyleSheet.create({
   },
   trash: {
     position: 'absolute',
-    right: 15,
+    right: 12,
   },
 });

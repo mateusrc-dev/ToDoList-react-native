@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
     paddingLeft: 24,
     paddingRight: 24,
     textAlign: "justify",
+    flex: 1,
   },
   container: {
     flexDirection: "row",
@@ -98,8 +99,5 @@ export const styles = StyleSheet.create({
     borderColor: "#0D0D0D",
     borderRadius: 6,
     color: "white",
-  },
-  containerTasks: {
-    gap: 8,
   },
 });
