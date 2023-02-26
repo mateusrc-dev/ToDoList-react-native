@@ -33,6 +33,8 @@ export const styles = StyleSheet.create({
   text: {
     maxWidth: 220,
     color: '#F2F2F2',
+    fontSize: 14,
+    fontFamily: 'Inter_400Regular'
   },
   trash: {
     position: 'absolute',

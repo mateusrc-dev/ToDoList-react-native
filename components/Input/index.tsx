@@ -12,7 +12,7 @@ export function Input({ onChangeInput, valueInput }: InputProps) {
   return (
     <TextInput
       style={focus ? styles.focus : styles.input}
-      placeholder="Adicione uma nova tarefa"
+      placeholder="Adicione uma nova tarefa!"
       placeholderTextColor={"#808080"}
       autoCorrect
       keyboardType="default"

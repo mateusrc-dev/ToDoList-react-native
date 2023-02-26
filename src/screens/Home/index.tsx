@@ -68,7 +68,6 @@ export function Home() {
     },
   ]);
   const [countChecked, setCountChecked] = useState(0);
-  const [state, setState] = useState(0);
 
   function handleAddTask() {
     if (text === "") {

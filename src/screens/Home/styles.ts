@@ -38,12 +38,14 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 14,
     lineHeight: 17,
+    fontFamily: 'Inter_700Bold',
   },
   textTwo: {
     color: "#8284FA",
     fontWeight: "bold",
     fontSize: 14,
     lineHeight: 17,
+    fontFamily: 'Inter_700Bold',
   },
   textThree: {
     color: "#808080",
@@ -65,6 +67,7 @@ export const styles = StyleSheet.create({
     width: 25,
     height: 19,
     textAlign: "center",
+    fontFamily: 'Inter_700Bold',
   },
   button: {
     justifyContent: "center",

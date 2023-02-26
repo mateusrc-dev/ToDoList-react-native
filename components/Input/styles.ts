@@ -12,6 +12,8 @@ export const styles = StyleSheet.create({
     borderColor: "#0D0D0D",
     borderRadius: 6,
     color: "#F2F2F2",
+    fontSize: 16,
+    fontFamily: 'Inter_400Regular'
   },
   focus: {
     paddingLeft: 16,
@@ -24,5 +26,7 @@ export const styles = StyleSheet.create({
     borderColor: "#5E60CE",
     borderRadius: 6,
     color: "#F2F2F2",
+    fontSize: 16,
+    fontFamily: 'Inter_400Regular'
   },
 });
