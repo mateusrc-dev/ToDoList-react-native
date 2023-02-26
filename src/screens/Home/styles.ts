@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   containerAll: {
-    marginTop: 40,
+    marginTop: -26,
     paddingLeft: 24,
     paddingRight: 24,
     textAlign: "justify",

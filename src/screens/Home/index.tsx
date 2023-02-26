@@ -4,12 +4,12 @@ import {
   View,
   TextInput,
   TouchableOpacity,
-  ScrollView,
   FlatList,
 } from "react-native";
 import { Task } from "../../../components/Task";
 import { styles } from "./styles";
 import { FontAwesome5 } from "@expo/vector-icons";
+import { Header } from "../../../components/Header";
 
 interface tasksProps {
   checked: boolean;
@@ -81,54 +81,57 @@ export function Home() {
   }
 
   return (
-    <View style={styles.containerAll}>
-      <View style={styles.containerFour}>
-        <TextInput
-          style={styles.input}
-          placeholder="Adicione uma nova tarefa"
-          placeholderTextColor={"#808080"}
-        />
-        <TouchableOpacity style={styles.button} onPress={handleAddTask}>
-          <View style={styles.buttonImage}>
-            <Text style={styles.buttonText}>+</Text>
-          </View>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.container}>
-        <View style={styles.containerTwo}>
-          <Text style={styles.textOne}>Criadas</Text>
-          <Text style={styles.numberContainer}>0</Text>
-        </View>
-        <View style={styles.containerTwo}>
-          <Text style={styles.textTwo}>Concluídas</Text>
-          <Text style={styles.numberContainer}>0</Text>
-        </View>
-      </View>
-      <FlatList
-        data={tasks}
-        keyExtractor={(item: tasksProps) => item.content}
-        renderItem={({ item }) => (
-          <Task
-            checked={item.checked}
-            content={item.content}
-            onRemove={handleRemoveTask}
+    <View style={{flex: 1}}>
+      <Header />
+      <View style={styles.containerAll}>
+        <View style={styles.containerFour}>
+          <TextInput
+            style={styles.input}
+            placeholder="Adicione uma nova tarefa"
+            placeholderTextColor={"#808080"}
           />
-        )}
-        showsVerticalScrollIndicator={false}
-        ListEmptyComponent={() => (
-          <View style={styles.containerThree}>
-            <View>
-              <Text style={styles.textThree}>
-                Você ainda não tem tarefas cadastradas
-              </Text>
-              <Text style={styles.textFour}>
-                Crie tarefas e organize seus itens a fazer
-              </Text>
+          <TouchableOpacity style={styles.button} onPress={handleAddTask}>
+            <View style={styles.buttonImage}>
+              <Text style={styles.buttonText}>+</Text>
             </View>
-            <FontAwesome5 name="clipboard" size={56} color="#808080" />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.container}>
+          <View style={styles.containerTwo}>
+            <Text style={styles.textOne}>Criadas</Text>
+            <Text style={styles.numberContainer}>0</Text>
           </View>
-        )}
-      />
+          <View style={styles.containerTwo}>
+            <Text style={styles.textTwo}>Concluídas</Text>
+            <Text style={styles.numberContainer}>0</Text>
+          </View>
+        </View>
+        <FlatList
+          data={tasks}
+          keyExtractor={(item: tasksProps) => item.content}
+          renderItem={({ item }) => (
+            <Task
+              checked={item.checked}
+              content={item.content}
+              onRemove={handleRemoveTask}
+            />
+          )}
+          showsVerticalScrollIndicator={false}
+          ListEmptyComponent={() => (
+            <View style={styles.containerThree}>
+              <View>
+                <Text style={styles.textThree}>
+                  Você ainda não tem tarefas cadastradas
+                </Text>
+                <Text style={styles.textFour}>
+                  Crie tarefas e organize seus itens a fazer
+                </Text>
+              </View>
+              <FontAwesome5 name="clipboard" size={56} color="#808080" />
+            </View>
+          )}
+        />
+      </View>
     </View>
   );
 }
