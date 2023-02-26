@@ -7,6 +7,6 @@ export const styles = StyleSheet.create({
     height: 173,
   },
   logo: {
-    marginTop: 24
+    marginTop: 70,
   },
 });

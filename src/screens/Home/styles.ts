@@ -3,9 +3,8 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   containerAll: {
     marginTop: -26,
-    paddingLeft: 24,
-    paddingRight: 24,
-    textAlign: "justify",
+    marginLeft: 24,
+    marginRight: 24,
     flex: 1,
   },
   container: {
@@ -87,17 +86,5 @@ export const styles = StyleSheet.create({
   buttonText: {
     marginTop: -4.2,
     color: '#FFF'
-  },
-  input: {
-    paddingLeft: 16,
-    paddingRight: 16,
-    flex: 1,
-    height: 51,
-    backgroundColor: "#262626",
-    borderWidth: 1,
-    borderStyle: "solid",
-    borderColor: "#0D0D0D",
-    borderRadius: 6,
-    color: "white",
   },
 });

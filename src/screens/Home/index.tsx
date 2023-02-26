@@ -1,15 +1,10 @@
 import { useState } from "react";
-import {
-  Text,
-  View,
-  TextInput,
-  TouchableOpacity,
-  FlatList,
-} from "react-native";
+import { Text, View, TouchableOpacity, FlatList, Alert } from "react-native";
 import { Task } from "../../../components/Task";
 import { styles } from "./styles";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Header } from "../../../components/Header";
+import { Input } from "../../../components/Input";
 
 interface tasksProps {
   checked: boolean;
@@ -17,6 +12,8 @@ interface tasksProps {
 }
 
 export function Home() {
+  // const [focusInput, setFocusInput] = useState()
+  const [text, setText] = useState("");
   const [tasks, setTasks] = useState<tasksProps[]>([
     {
       checked: true,
@@ -73,7 +70,13 @@ export function Home() {
   ]);
 
   function handleAddTask() {
-    console.log("adicionar task");
+    if (text === "") {
+      return Alert.alert(
+        "Escreva algo para criar sua tarefa!",
+        "Tente escrever algo que você pretenda fazer para criar uma nova tarefa, pense direitinho!"
+      );
+    }
+    console.log(text)
   }
 
   function handleRemoveTask(content: string) {
@@ -81,15 +84,11 @@ export function Home() {
   }
 
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1, backgroundColor: "#1A1A1A" }}>
       <Header />
       <View style={styles.containerAll}>
         <View style={styles.containerFour}>
-          <TextInput
-            style={styles.input}
-            placeholder="Adicione uma nova tarefa"
-            placeholderTextColor={"#808080"}
-          />
+          <Input onChangeInput={setText} valueInput={text} />
           <TouchableOpacity style={styles.button} onPress={handleAddTask}>
             <View style={styles.buttonImage}>
               <Text style={styles.buttonText}>+</Text>
