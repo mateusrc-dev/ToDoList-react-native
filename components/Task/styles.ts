@@ -8,5 +8,7 @@ export const styles = StyleSheet.create({
     width: 24,
     height: 24,
     borderRadius: 9999,
+    borderColor: '#4EA8DE',
+    backgroundColor: 'transparent',
   },
 });
