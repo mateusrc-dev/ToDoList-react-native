@@ -8,12 +8,14 @@ interface TaskProps {
   checked: boolean;
   content: string;
   onRemove: (content: string) => void
+  onCheckedUpdate: (index: number) => void
+  index: number
 }
 
-export function Task({ checked, content, onRemove }: TaskProps) {
+export function Task({ checked, content, onRemove, onCheckedUpdate, index }: TaskProps) {
   return (
     <View style={styles.container}>
-      <Checkbox checked={checked} />
+      <Checkbox checked={checked} content={content} onCheckedUpdate={onCheckedUpdate} index={index} />
       <Text style={styles.text}>{content}</Text>
       <TouchableOpacity style={styles.trash} onPress={() => onRemove(content)}>
         <EvilIcons name="trash" size={32} color="#808080" />

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Text, View, TouchableOpacity, FlatList, Alert } from "react-native";
 import { Task } from "../../../components/Task";
 import { styles } from "./styles";
@@ -12,7 +12,6 @@ interface tasksProps {
 }
 
 export function Home() {
-  // const [focusInput, setFocusInput] = useState()
   const [text, setText] = useState("");
   const [tasks, setTasks] = useState<tasksProps[]>([
     {
@@ -68,6 +67,8 @@ export function Home() {
       content: "terminar de programar app todo list totalmente",
     },
   ]);
+  const [countChecked, setCountChecked] = useState(0);
+  const [state, setState] = useState(0);
 
   function handleAddTask() {
     if (text === "") {
@@ -76,12 +77,44 @@ export function Home() {
         "Tente escrever algo que você pretenda fazer para criar uma nova tarefa, pense direitinho!"
       );
     }
-    console.log(text)
+    setTasks((state) => [...state, { checked: false, content: text }]);
+    setText("");
   }
 
   function handleRemoveTask(content: string) {
-    console.log(`você clicou em remover task => ${content}`);
+    Alert.alert("Remover", "Tem certeza que deseja remover esta tarefa?", [
+      {
+        text: "Sim",
+        onPress: () =>
+          setTasks((state) => state.filter((task) => task.content !== content)),
+      },
+      {
+        text: "Não",
+        style: "cancel",
+      },
+    ]);
   }
+
+  function handleCheckedUpdate(index: number) {
+    let Tasks = tasks;
+    if (Tasks[index].checked == true) {
+      Tasks[index].checked = false;
+    } else if (Tasks[index].checked == false) {
+      Tasks[index].checked = true;
+    }
+    setTasks([...Tasks]);
+  }
+
+  useEffect(() => {
+    let checksTrue;
+    checksTrue = 0;
+    for (let i = 0; tasks.length > i; i++) {
+      if (tasks[i].checked == true) {
+        checksTrue += 1;
+      }
+    }
+    setCountChecked(checksTrue);
+  }, [tasks]);
 
   return (
     <View style={{ flex: 1, backgroundColor: "#1A1A1A" }}>
@@ -98,21 +131,23 @@ export function Home() {
         <View style={styles.container}>
           <View style={styles.containerTwo}>
             <Text style={styles.textOne}>Criadas</Text>
-            <Text style={styles.numberContainer}>0</Text>
+            <Text style={styles.numberContainer}>{tasks.length}</Text>
           </View>
           <View style={styles.containerTwo}>
             <Text style={styles.textTwo}>Concluídas</Text>
-            <Text style={styles.numberContainer}>0</Text>
+            <Text style={styles.numberContainer}>{countChecked}</Text>
           </View>
         </View>
         <FlatList
           data={tasks}
           keyExtractor={(item: tasksProps) => item.content}
-          renderItem={({ item }) => (
+          renderItem={({ item, index }) => (
             <Task
               checked={item.checked}
               content={item.content}
               onRemove={handleRemoveTask}
+              onCheckedUpdate={handleCheckedUpdate}
+              index={index}
             />
           )}
           showsVerticalScrollIndicator={false}
