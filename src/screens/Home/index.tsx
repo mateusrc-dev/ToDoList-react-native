@@ -54,18 +54,6 @@ export function Home() {
       checked: false,
       content: "rezar o terço de novo",
     },
-    {
-      checked: true,
-      content: "ler castelo interior",
-    },
-    {
-      checked: false,
-      content: "rezar o terço novamente",
-    },
-    {
-      checked: true,
-      content: "terminar de programar app todo list totalmente",
-    },
   ]);
   const [countChecked, setCountChecked] = useState(0);
 
@@ -93,6 +81,8 @@ export function Home() {
       },
     ]);
   }
+
+  console.log(tasks)
 
   function handleCheckedUpdate(index: number) {
     let Tasks = tasks;
